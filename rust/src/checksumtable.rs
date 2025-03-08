@@ -12,7 +12,7 @@ pub enum ChecksumTableError {
 }
 
 pub struct ChecksumTable {
-    entries: Vec<u32>,
+    pub entries: Vec<u32>,
 }
 
 impl ChecksumTable {
@@ -31,7 +31,7 @@ impl ChecksumTable {
         Ok(())
     }
 
-    pub fn create(store: &Box<dyn Store>) -> Result<ChecksumTable, ChecksumTableError> {
+    pub fn create(store: &Box<dyn Store + Send + Sync>) -> Result<ChecksumTable, ChecksumTableError> {
         let mut entries = Vec::new();
         let mut next_archive = 0;
 

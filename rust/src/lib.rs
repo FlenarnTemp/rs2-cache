@@ -22,7 +22,7 @@ pub struct Cache {
     pub store: Box<dyn Store + Send + Sync>,
 
     /// Archives
-    archives: HashMap<u8, CacheArchive>,
+    pub archives: HashMap<u8, CacheArchive>,
 
     /// Unpacked cache size
     _unpacked_cache_size: usize,
